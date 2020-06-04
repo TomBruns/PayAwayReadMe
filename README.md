@@ -48,7 +48,7 @@ The Merchant solution consists of three (3) experiences
     + Merchant's Order No
     + Select the Pickup Time
         
-* (Right) After the customer has enterd their payment information, the Merchant uses this screen to enter the payment details into their Credit Card Terminal or POS system.
+* (Right) After the customer has enterd their payment information, the Merchant uses this screen to enter the payment details into their Credit Card Terminal or POS system.  Note: The Card No shown is a token, it **IS NOT** the same number that the customer entered! 
 
 > @icon-info-circle Note: The Order `automatically` moves from the `Ready` screen to the `Posted` screen when the Merchant processes the payment thru their Credit Card terminal or POS.
 
