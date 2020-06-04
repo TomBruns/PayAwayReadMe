@@ -21,8 +21,8 @@ PayAway is ..... Need Marco words here
 The Merchant solution consists of three (3) experiences
 
 &nbsp;&nbsp;&nbsp;&nbsp;![Merchant Order Summary Placeholder](Images/merchant_order_summary.jpg?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;
-![Merchant New Order Placeholder](images/merchant_new_order.jpg?raw=true)
-&nbsp;&nbsp;&nbsp;&nbsp;![Merchant Enter Payment Placeholder](images/merchant_enter_payment.jpg?raw=true)
+![Merchant New Order Placeholder](Images/merchant_new_order.jpg?raw=true)
+&nbsp;&nbsp;&nbsp;&nbsp;![Merchant Enter Payment Placeholder](Images/merchant_enter_payment.jpg?raw=true)
 
 * (Left) A panel that shows a summary of orders with tabs for different Order Statuses.  You can click on a `Card` to see additional information about that order.  You click on the `Request Payment` button to enter a new Payment Request.
 
@@ -46,9 +46,9 @@ The Merchant solution consists of three (3) experiences
 
 The Cardholder solution consists of three (3) experiences
 
-&nbsp;&nbsp;&nbsp;&nbsp;![CardHolder SMS Placeholder](images/sms.jpg?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;![CardHolder SMS Placeholder](Images/sms.jpg?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;
 ![CardHolder Payment Page Placeholder](images/payment_page.jpg?raw=true)
-&nbsp;&nbsp;&nbsp;&nbsp;![CardHolder Confirmation page Placeholder](images/confirmation_page.jpg?raw=true)
+&nbsp;&nbsp;&nbsp;&nbsp;![CardHolder Confirmation page Placeholder](Images/confirmation_page.jpg?raw=true)
 
 * (Left) The cardholder receives a SMS message with a clickable link to a unique payment page for their order.
 
@@ -64,12 +64,12 @@ The Cardholder solution consists of three (3) experiences
 ---
 ## Solution Architecture
 
-![One Bubble Placeholder](images/one_bubble.jpg?raw=true) &nbsp; **IPhone Smartphone Application**  
+![One Bubble Placeholder](Images/one_bubble.jpg?raw=true) &nbsp; **IPhone Smartphone Application**  
 + The IPhone application is written in [Swift](https://www.apple.com/swift/) ... (Dave to add text)
 
 + This application interacts with the `Cloud hosted` Business Services thru a set of REST WebAPIs.
 
-![AppArch](images/two_bubble.jpg?raw=true) &nbsp; **Mobile Brower Payment Page**  
+![AppArch](Images/two_bubble.jpg?raw=true) &nbsp; **Mobile Brower Payment Page**  
 + The Payment Page is written in [Blazor WebAssembly](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) v3.2
 
 + Blazor is a .NET web framework using C#/Razor, HTML and Bootstrap that runs in the browser with WebAssembly (more information below).
@@ -77,7 +77,7 @@ The Cardholder solution consists of three (3) experiences
 + This application interacts with the `Cloud hosted` Business Services thru a set of REST WebAPIs.
 + This application also retrieves static images (merchant logos) from an `Azure Blob Container` exposed by a Read-only Blob URL.
 
-![Three Bubble Placeholder](images/three_bubble.jpg?raw=true) &nbsp; **Business Services**  
+![Three Bubble Placeholder](Images/three_bubble.jpg?raw=true) &nbsp; **Business Services**  
 * Our solution built a set of WebAPIs written in C# using [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) running in ASP.NET and hosted in an `Azure App Service` that support:
     + Customer Payment Page Application
     + Merchant SmartPhone Application
@@ -87,20 +87,20 @@ The Cardholder solution consists of three (3) experiences
 
 > @icon-info-circle  The WebAPIs are fully documented and testable using an associated Swagger Site.
 
-![Four Bubble Placeholder](images/four_bubble.jpg?raw=true) &nbsp; **RAFT API Gateway (RGW)**  
+![Four Bubble Placeholder](Images/four_bubble.jpg?raw=true) &nbsp; **RAFT API Gateway (RGW)**  
 * Our solution modified the RGW to receive an event from RAFT (over a socket) and make an outbound WebAPI call (thru DataPower) to the PayAway Business Services hosted in Azure. 
 
 + These changes were written in `JAVA` that runs in a special region on the Mainframe.
 
-![Five Bubble Placeholder](images/five_bubble.jpg?raw=true) &nbsp; **RAFT Auth Switch (RAFT)**  
+![Five Bubble Placeholder](Images/five_bubble.jpg?raw=true) &nbsp; **RAFT Auth Switch (RAFT)**  
 * Our solution modified the incoming Payment Authorization logic to send `Payment Authorized` events to RGW for requests from merchants configured for PayAway when they use a PayAway token.
 
 + These changes were written in `Mainframe Assembly`.
 
-![Six Bubble Placeholder](images/six_bubble.jpg?raw=true) &nbsp; **Twilio SMS Service**  
+![Six Bubble Placeholder](Images/six_bubble.jpg?raw=true) &nbsp; **Twilio SMS Service**  
 * Our solution calls the [Twilo](https://www.twilio.com/) REST WebAPI to send SMS messages to customers.
 
-&nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](images/app_arch.jpg?raw=true)
+&nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](Images/app_arch.jpg?raw=true)
 
 ---
 ## Innovative Technology
@@ -120,7 +120,7 @@ Web SPAs written in Blazor look and feel no different to a user (and "work" just
 
 Similar to JavaScript, Blazor WebAssembly apps run securely on the user’s browser’s security sandbox. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](images/blazor_webassembly.jpg?raw=true)
+&nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](Images/blazor_webassembly.jpg?raw=true)
 
 These apps can be deployed as completely standalone static sites without any .NET server component at all, or they can be paired with ASP.NET Core to enable full stack web development and debugging with .NET using Visual Studio, Visual Studio for Mac, and Visual Studio Code.
 
@@ -133,7 +133,7 @@ These apps can be deployed as completely standalone static sites without any .NE
 
 * Data from https://caniuse.com/#search=webassembly
 
-&nbsp;&nbsp;&nbsp;&nbsp;![CanIUseIt](images/can_i_use_it.jpg?raw=true)
+&nbsp;&nbsp;&nbsp;&nbsp;![CanIUseIt](Images/can_i_use_it.jpg?raw=true)
 
 > @icon-exclamation-circle  WebAssembly **is** broadly supported across the Mobile Browsers used on current Smartphones.
 
