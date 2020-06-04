@@ -47,7 +47,7 @@ The Merchant solution consists of three (3) experiences
 The Cardholder solution consists of three (3) experiences
 
 &nbsp;&nbsp;&nbsp;&nbsp;![CardHolder SMS Placeholder](Images/sms.jpg?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;
-![CardHolder Payment Page Placeholder](images/payment_page.jpg?raw=true)
+![CardHolder Payment Page Placeholder](Images/payment_page.jpg?raw=true)
 &nbsp;&nbsp;&nbsp;&nbsp;![CardHolder Confirmation page Placeholder](Images/confirmation_page.jpg?raw=true)
 
 * (Left) The cardholder receives a SMS message with a clickable link to a unique payment page for their order.
