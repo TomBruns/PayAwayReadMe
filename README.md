@@ -3,11 +3,12 @@
 This solution was created as part of the 2020 FIS InnovateIN48 US regionals competition.
 <p>This source code repository contains:
 <ul>
-<li>Merchant IPhone application.  This is a native IOS application.
-<li>Backend Business Services for the PayAway Merchant Smartphone application.  
+<li>Merchant IPhone application.  This is a native IOS application that would be installed on the Merchant's phone.
+<li>Backend Business Services for the PayAway Merchant Smartphone application and Customer Payment Pages.  
 The Business Services are hosted in a Microsoft Azure App Service and are exposed as a set of REST WebAPIs.
 <li>Payment Page (HPP) used by the Customer.  
 The HPP is built using Blazor WebAssembly and runs in a user's browser.
+<li>The code for RAFT and Raft Gateway is stored in their Code Repositories.  
 </ul>
 
 
@@ -87,9 +88,15 @@ The Cardholder solution consists of three (3) experiences
     + Merchant SmartPhone Application
     + RAFT Payment Status Event Postback
 
+> @icon-info-circle  The WebAPIs are fully documented and testable using an associated Swagger Site.
+>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Swagger Placeholder](Images/swagger.jpg?raw=true) 
+
 * .NET Core is an open-source, general-purpose development framework for building cross-platform apps.
 
-> @icon-info-circle  The WebAPIs are fully documented and testable using an associated Swagger Site.
+* This app uses an embedded `SQLite` database for local storage in the service. 
+
+> @icon-info-circle  No PAN or PCI is stored in this DB.
 
 ![Four Bubble Placeholder](Images/four_bubble.jpg?raw=true) &nbsp; **RAFT API Gateway (RGW)**  
 * Our solution modified the RGW to receive an event from RAFT (over a socket) and make an outbound WebAPI call (thru DataPower) to the PayAway Business Services hosted in Azure. 
@@ -105,6 +112,8 @@ The Cardholder solution consists of three (3) experiences
 * Our solution calls the [Twilo](https://www.twilio.com/) REST WebAPI to send SMS messages to customers.
 
 &nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](Images/app_arch.jpg?raw=true)
+
+> @icon-info-circle Special thank you to the DataPower team who helped us setup a non-prod proxy for this project!
 
 ---
 ## Innovative Technology
