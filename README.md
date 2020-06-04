@@ -64,7 +64,7 @@ The Cardholder solution consists of three (3) experiences
 ![CardHolder Payment Page Placeholder](Images/payment_page.jpg?raw=true)
 &nbsp;&nbsp;&nbsp;&nbsp;![CardHolder Confirmation page Placeholder](Images/confirmation_page.jpg?raw=true)
 
-* (Left) The cardholder receives a SMS message with a clickable link to a unique payment page for their order.
+* (Left) The cardholder receives an SMS message with a clickable link to a unique payment page for their order.
 
 * (Center) Clicking on the link opens the user's browser to a branded *Payment Page* for the order where you enter only three (3) pieces of information.  The `Pay Now` button is enabled when you have entered all of the required information.
 
@@ -79,7 +79,7 @@ The Cardholder solution consists of three (3) experiences
 ## Solution Architecture
 
 ![One Bubble Placeholder](Images/one_bubble.jpg?raw=true) &nbsp; **IPhone Smartphone Application**  
-+ The IPhone application is written in [Swift](https://www.apple.com/swift/) ... (Dave to add text)
++ The IPhone application is written in [Swift](https://www.apple.com/swift/) 
 
 + This application interacts with the `Cloud hosted` Business Services thru a set of REST WebAPIs.
 
@@ -92,7 +92,7 @@ The Cardholder solution consists of three (3) experiences
 ![AppArch](Images/two_bubble.jpg?raw=true) &nbsp; **Mobile Brower Payment Page**  
 + The Payment Page is written in [Blazor WebAssembly](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) v3.2
 
-+ Blazor is a .NET web framework using C#/Razor, HTML and Bootstrap that runs in the browser with WebAssembly (more information below).
++ Blazor is a .NET web framework using C#/Razor, HTML and Bootstrap that runs in the browser using WebAssembly (more information below).
 
 + This application interacts with the `Cloud hosted` Business Services thru a set of REST WebAPIs.
 + This application also retrieves static images (merchant logos) from an `Azure Blob Container` exposed by a Read-only Blob URL.
@@ -114,14 +114,14 @@ The Cardholder solution consists of three (3) experiences
 
 * This app uses an embedded `SQLite` database for local storage in the service. 
 
+> @icon-info-circle  No PAN or PCI is stored in th SQLite DB.
+
 + The following third-party libraries from nuget were used:
     + EntityFramework Core
     + Swashbuckle
     + Twilio
     + RestSharp
     + SQLite 
-
-> @icon-info-circle  No PAN or PCI is stored in this DB.
 
 ![Four Bubble Placeholder](Images/four_bubble.jpg?raw=true) &nbsp; **RAFT API Gateway (RGW)**  
 * Our solution modified the RGW to receive an event from RAFT (over a socket) and make an outbound WebAPI call (thru DataPower) to the PayAway Business Services hosted in Azure. 
@@ -147,15 +147,14 @@ else if (callType.toUpperCase().equals(CALL_TYPE_PAYAWAY)) {
 }
 ```
 
-
 ![Five Bubble Placeholder](Images/five_bubble.jpg?raw=true) &nbsp; **RAFT Auth Switch (RAFT)**  
-+ The fundamental requirement was to allow merchants using basic Card Terminals to continue to process clear text PAN transactions ans transparently add the ability to process Tokenized transactions.
++ The fundamental requirement was to allow merchants using basic Card Terminals to continue to process clear text PAN transactions and transparently add the ability to process Tokenized transactions.
 
-+ The challenge was how to distinguish on-the-fly between tokenized and non-tokenized payment card nos in a payment auth request.  
++ The challenge was how to distinguish on-the-fly between tokenized and non-tokenized payment card Nos in a payment auth request.  
 
-+ The solution for the Hackathon was to use the Tokenization request as a `PayAway initialization transaction` and additionally store the Tokenized PAN in a special `PayAway` vault.  If the merchant is enabled for `PayAway`, Raft will 1st look in the PayAway Vault for an entry matching the PAN value received.  If it finds a match, it will then use the standard Vault to detokenize the value received back to clear text PAN.   Additionally RAFY will also send a `Payment Authorized` event to RGW.  If it does not find a matching entry in the PayAway Vault, RAFT assumes the value received is clear text PAN. 
++ The solution for the Hackathon was to use the Tokenization request as a `PayAway initialization transaction` and additionally store the Tokenized PAN in a special `PayAway` vault.  If the merchant is enabled for `PayAway`, Raft will 1st look in the PayAway Vault for an entry matching the PAN value received.  If it finds a match, it will then use the standard Vault to detokenize the value received back to clear text PAN.   Additionally RAFT will also send a `Payment Authorized` event to RGW.  If it does not find a matching entry in the PayAway Vault, RAFT assumes the value received is clear text PAN. 
 
-+ The changes were written in `Mainframe Assembly`, a sample of the code is below...
++ The changes were written in `Mainframe Assembler`, a sample of the code is below...
 ```text  
 *---------------------------------------------------------------------*
 *        CHECK FOR PAYAWAY                                            *
@@ -194,22 +193,21 @@ PAYACHK  DS    0H
 
 [Blazor]( https://blazor.net) is an open source and cross-platform web UI framework for building single-page apps (SPAs) built on `WebAssembly` that was officially release on `May 19, 2020`. 
 
-> @icon-exclamation-circle Blazor is not a browser plugin!
+> @icon-exclamation-circle Blazor is **NOT** a browser plugin!
 
-Blazor apps are composed of reusable web UI components implemented using C#, HTML, and Bootstrap/CSS instead of JavaScript. If the server code is also written in C#, you to share code and libraries.
+Blazor apps are composed of reusable web UI components implemented using C#, HTML, and Bootstrap/CSS (instead of JavaScript). If the server code is also written in C#, you can easily share code and libraries.
 
-Web SPAs written in Blazor look and feel no different to a user (and "work" just like a standard browser app).
+Web SPAs written in Blazor look and act no different to a user (and "work" just like a standard browser app).
 
 > @icon-info-circle Blazor has built-in support for building Progressive Web Apps (PWA) with offline capabilities.
 
-Similar to JavaScript, Blazor WebAssembly apps run securely on the user’s browser’s security sandbox. 
+Similar to JavaScript, Blazor WebAssembly apps run securely in the user’s browser security sandbox. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](Images/blazor_webassembly.jpg?raw=true)
 
 These apps can be deployed as completely standalone static sites without any .NET server component at all, or they can be paired with ASP.NET Core to enable full stack web development and debugging with .NET using Visual Studio, Visual Studio for Mac, and Visual Studio Code.
 
 > @icon-info-circle In this solution, the cloud-hosted business services and the payment page running the customer's brower share the same assembly that contains definitions of Business Entities and shared logic.
-
 
 
 ---
