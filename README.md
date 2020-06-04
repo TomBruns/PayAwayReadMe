@@ -83,6 +83,12 @@ The Cardholder solution consists of three (3) experiences
 
 + This application interacts with the `Cloud hosted` Business Services thru a set of REST WebAPIs.
 
++ The following third-party libraries were used:
+    + PhoneNumberKit
+    + CurrecyText
+    + Alamofire
+    + SwiftyJSON
+
 ![AppArch](Images/two_bubble.jpg?raw=true) &nbsp; **Mobile Brower Payment Page**  
 + The Payment Page is written in [Blazor WebAssembly](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) v3.2
 
@@ -90,6 +96,9 @@ The Cardholder solution consists of three (3) experiences
 
 + This application interacts with the `Cloud hosted` Business Services thru a set of REST WebAPIs.
 + This application also retrieves static images (merchant logos) from an `Azure Blob Container` exposed by a Read-only Blob URL.
+
++ The following third-party libraries from nuget were used:
+    + MatBlazor
 
 ![Three Bubble Placeholder](Images/three_bubble.jpg?raw=true) &nbsp; **Business Services**  
 * Our solution built a set of WebAPIs written in C# using [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) running in ASP.NET and hosted in an `Azure App Service` that support:
@@ -104,6 +113,13 @@ The Cardholder solution consists of three (3) experiences
 * .NET Core is an open-source, general-purpose development framework for building cross-platform apps.
 
 * This app uses an embedded `SQLite` database for local storage in the service. 
+
++ The following third-party libraries from nuget were used:
+    + EntityFramework Core
+    + Swashbuckle
+    + Twilio
+    + RestSharp
+    + SQLite 
 
 > @icon-info-circle  No PAN or PCI is stored in this DB.
 
