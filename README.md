@@ -79,7 +79,14 @@ The Cardholder solution consists of three (3) experiences
 ## Solution Architecture
 
 ![One Bubble Placeholder](Images/one_bubble.jpg?raw=true) &nbsp; **IPhone Smartphone Application**  
-+ The IPhone application is written in [Swift](https://www.apple.com/swift/) ... (Dave to add text)
++ The IPhone application is written in [Swift](https://www.apple.com/swift/)
+
++ The IPhone application was built using the following third-party libraries:
+<ul>
+    <li> PhoneNumberKit
+    <li> Alamofire
+    <li> SwiftyJSON
+    <li> CurrencyText
 
 + This application interacts with the `Cloud hosted` Business Services thru a set of REST WebAPIs.
 
