@@ -10,6 +10,10 @@ The Business Services are hosted in a Microsoft Azure App Service and are expose
 The HPP is built using Blazor WebAssembly and runs in a user's browser.
 </ul>
 
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+
 ---
 ## PayAway Solution Introduction
 
