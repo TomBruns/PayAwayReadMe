@@ -11,15 +11,24 @@ The HPP is built using Blazor WebAssembly and runs in a user's browser.
 <li>The code for RAFT and Raft Gateway is stored in their Code Repositories.  
 </ul>
 
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-
-
 ---
 ## PayAway Solution Introduction
 
 PayAway is ..... Need Marco words here
 
+* replace the need to take Credit Card Numbers over the phone with a very low friction e-Commerce like experience for the customer.
+* remove the PCI compliance challenges merchants face 
+* provide an opportunity to extend the interaction with the customer
+* does not require any specialized equipment, investment or integration changes by the merchant.
+
+#### Summary
+We provide an ability for the Customer's Payment Card No to be substituted for a Token before it is made available to the Merchant.
+
+The merchant enters the Token into their Credit Card Terminal/POS the same they normally would.
+
+FIS/Worldpay's systems automatically convert the token back into the original PAN before sending the payment authorization request to the Card Networks.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Merchant New Order Placeholder](Images/tokenized_pan.jpg?raw=true)
 
 #### Merchant Solution 
 
@@ -41,7 +50,7 @@ The Merchant solution consists of three (3) experiences
         
 * (Right) After the customer has enterd their payment information, the Merchant uses this screen to enter the payment details into their Credit Card Terminal or POS system.
 
-> @icon-info-circle Note: The Order automatically moves from the `Ready` screen to the `Posted` screen when the Merchant processes the payment thru their Credit Card terminal or POS.
+> @icon-info-circle Note: The Order `automatically` moves from the `Ready` screen to the `Posted` screen when the Merchant processes the payment thru their Credit Card terminal or POS.
 
 > @icon-info-circle Note: We are not demoing but we could also support Payment Requests that are sent via Email and run in a desktop/tablet browser
 
