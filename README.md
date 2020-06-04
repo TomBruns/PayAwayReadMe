@@ -20,7 +20,7 @@ PayAway is ..... Need Marco words here
 
 The Merchant solution consists of three (3) experiences
 
-&nbsp;&nbsp;&nbsp;&nbsp;![Merchant Order Summary Placeholder](images/merchant_order_summary.jpg?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;![Merchant Order Summary Placeholder](Images/merchant_order_summary.jpg?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;
 ![Merchant New Order Placeholder](images/merchant_new_order.jpg?raw=true)
 &nbsp;&nbsp;&nbsp;&nbsp;![Merchant Enter Payment Placeholder](images/merchant_enter_payment.jpg?raw=true)
 
