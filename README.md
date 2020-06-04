@@ -110,12 +110,58 @@ The Cardholder solution consists of three (3) experiences
 ![Four Bubble Placeholder](Images/four_bubble.jpg?raw=true) &nbsp; **RAFT API Gateway (RGW)**  
 * Our solution modified the RGW to receive an event from RAFT (over a socket) and make an outbound WebAPI call (thru DataPower) to the PayAway Business Services hosted in Azure. 
 
-+ These changes were written in `JAVA` that runs in a special region on the Mainframe.
++ RGW has a robust custom framework that supports most changes via XML config files in place of code.  An overview of the RGW changes that were required for `PayAway` is shown below:
+
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Swagger Placeholder](Images/rgw.jpg?raw=true) 
+
++ The few code changes required are written in `JAVA` and run in a special region `on the Mainframe`, an example is shown below...
+
++ SendReceiveRESTMessage.java  
+    * This Module handles adding HTTP headers to message payload and sending/receiving the REST message on the targeted endpoint.  Added new call type string and if clause for adding the headers needed for the PayAway web service call.
+
+```java
+private static final String CALL_TYPE_PAYAWAY = "PAYAWAY";
+// existing statements removed, only this else if was added
+else if (callType.toUpperCase().equals(CALL_TYPE_PAYAWAY)) {
+	mainHTTP.setReqHeader("Content-Type", "application/json");
+	mainHTTP.setHttpURL(new URL(urlNode.getAttributeByName(ATTR_DOC_DATA).getAttrValue()));
+	mainHTTP.setRequestMethod(HTTPMessage.HTTP_REQ_POST);
+	mainHTTP.setRequestBody(actionMsg.getRequestByteMsg());
+	mainHTTP.setReqHeader("Authorization", "VANTIV license=\"" + config.getProperty("vts.dp") +"\"");	
+}
+```
+
 
 ![Five Bubble Placeholder](Images/five_bubble.jpg?raw=true) &nbsp; **RAFT Auth Switch (RAFT)**  
-* Our solution modified the incoming Payment Authorization logic to send `Payment Authorized` events to RGW for requests from merchants configured for PayAway when they use a PayAway token.
++ The fundamental requirement was to allow merchants using basic Card Terminals to continue to process clear text PAN transactions ans transparently add the ability to process Tokenized transactions.
 
-+ These changes were written in `Mainframe Assembly`.
++ The challenge was how to distinguish on-the-fly between tokenized and non-tokenized payment card nos in a payment auth request.  
+
++ The solution for the Hackathon was to use the Tokenization request as a `PayAway initialization transaction` and additionally store the Tokenized PAN in a special `PayAway` vault.  If the merchant is enabled for `PayAway`, Raft will 1st look in the PayAway Vault for an entry matching the PAN value received.  If it finds a match, it will then use the standard Vault to detokenize the value received back to clear text PAN.   Additionally RAFY will also send a `Payment Authorized` event to RGW.  If it does not find a matching entry in the PayAway Vault, RAFT assumes the value received is clear text PAN. 
+
++ The changes were written in `Mainframe Assembly`, a sample of the code is below...
+```text  
+*---------------------------------------------------------------------*
+*        CHECK FOR PAYAWAY                                            *
+*---------------------------------------------------------------------*
+PAYACHK  DS    0H                                            
+         STM   R0,R15,SAVELVL3         SAVE REGISTERS                  
+         LR    R10,R15                 COPY ENTRY POINT                
+         USING PAYACHK,R10             ADDRESS IT                      
+*--------IN REAL LIFE, WE'D CHECK IF IT'S A MERCHANT ENABLED FOR       
+*--------PAYWAY AND A TOKENIZATION REQUEST. IF YES. STORE THE KEY IN   
+*--------THE TOKEN VAULT.                                              
+         L     R3,POSPTR               LOAD OFFS TO POS AREA           
+         USING TRPOSINF,R3             SET POS AREA BASE               
+         CLI   TNSTAT2,TN2SPEC         Q. SPECIAL TRAN?                
+         BNE   PAWY9000                N. DONE                         
+         CLI   TNRQSPEC,TNTKNREQ       Q. REQUEST TOKEN FROM PAN?      
+         BNE   PAWY9000                N. DONE                         
+         CLC   TRMRHNO(13),=C'4445091051532' Q. TEST MID?              
+         BNE   PAWY9000                N. DONE                         
+
+```
+
 
 ![Six Bubble Placeholder](Images/six_bubble.jpg?raw=true) &nbsp; **Twilio SMS Service**  
 * Our solution calls the [Twilo](https://www.twilio.com/) REST WebAPI to send SMS messages to customers.
