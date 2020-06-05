@@ -29,9 +29,9 @@ The solution can be leveraged by merchants of any size and in virtually any indu
 * does not require any specialized equipment, investment or integration changes by the merchant.
 
 #### Overview
-We provide an ability for the Customer's Payment Card No to be substituted for a Token before it is made available to the Merchant.
+We provide an ability for a Token to be substituted for the Customer's Payment Card No before it is made available to the Merchant.
 
-The merchant enters the Token into their Credit Card Terminal/POS the same they normally would.
+The merchant enters the Token into their Credit Card Terminal/POS the same way they normally would enter a Card No.
 
 FIS/Worldpay's systems automatically convert the token back into the original PAN before sending the payment authorization request to the Card Networks.
 
