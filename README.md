@@ -11,7 +11,7 @@ This solution was created as part of the 2020 FIS InnovateIN48 US regionals comp
 #### Contents
 * [Business Proposition](#business-proposition)
 * [Target Customer Base](#target-customer-base)
-* [Solution Overview](#overview)
+* [Solution Overview](#solution-overview)
 * [Merchant Solution](#merchant-solution)
 * [Cardholder Solution](#cardholder-solution)
 * [Solution Architecture](#solution-architecture)
