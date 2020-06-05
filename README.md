@@ -1,16 +1,4 @@
-﻿# [Team ID8: PayAway](https://github.com/)
-
-This solution was created as part of the 2020 FIS InnovateIN48 US regionals competition.
-<p>This source code repository contains:
-<ul>
-<li>Merchant IPhone application.  This is a native IOS application that would be installed on the Merchant's phone.
-<li>Backend Business Services for the PayAway Merchant Smartphone application and Customer Payment Pages.  
-The Business Services are hosted in a Microsoft Azure App Service and are exposed as a set of REST WebAPIs.
-<li>Payment Page (HPP) used by the Customer.  
-The HPP is built using Blazor WebAssembly and runs in a user's browser.
-<li>The code for RAFT and Raft Gateway is stored in their Code Repositories.  
-</ul>
-
+﻿# [2020 FIS InnovateIn48 US Regionals: Team ID8 ](https://bitbucket.fis.dev/projects/INNO20R/repos/id8/browse)
 ---
 ## PayAway
 
@@ -18,9 +6,23 @@ The HPP is built using Blazor WebAssembly and runs in a user's browser.
 PayAway is a solution that converts remote payment transactions such as over-the-phone into secure online payments. It's value proposition rests on 2 main pillars:
 - To reduce the risk associated with exchanging payment card information openly over the phone - benefits merchants and consumers
 - To support a merchant's digital strategy by converting the payment portion of a phone interaction into a more secure online payment transaction, at the completion of which the consumer can be redirected to the merchants digital properties to continue the brand interaction. This opportunity for organic brand interaction would have been completely lost at the time the consumer hangs up the phone.
+This solution was created as part of the 2020 FIS InnovateIN48 US regionals competition.
+---
+#### Contents
+* [Business Proposition](#business-proposition)
+* [Target Customer Base](#target-customer-base)
+* [Solution Overview](#overview)
+* [Merchant Solution](#merchant-solution)
+* [Cardholder Solution](#cardholder-solution)
+* [Solution Architecture](#solution-architecture)
+* [What makes it Cool?](#what-makes-it-cool)
+* [Wow Factor](#wow-factor)
+* [Source Code](#source-code)
+* [Team ID8](#team-id8)
 
- 
+---
 
+#### Target Customer Base
 The solution can be leveraged by merchants of any size and in virtually any industry or vertical: doctor's offices can use it to accelerate time to revenue; professional services providers such as contractors can leverage it to capture security deposits for an appointment or to bill pre- or post-service; online retailers offering the increasingly popular web chat support services can leverage it to drive conversion prior to terminating contact with the customer; and many other examples. All merchants can tie the solution into their digital strategies and benefit from safer payments and increased brand interaction post-contact, simply by leveraging this innovative implementation of the payment flow.
 
 * replace the need to take Credit Card Numbers over the phone with a very low friction e-Commerce like experience for the customer.
@@ -28,7 +30,8 @@ The solution can be leveraged by merchants of any size and in virtually any indu
 * provide an opportunity to extend the interaction with the customer
 * does not require any specialized equipment, investment or integration changes by the merchant.
 
-#### Overview
+---
+#### Solution Overview
 We provide an ability for a Token to be substituted for the Customer's Payment Card No before it is made available to the Merchant.
 
 The merchant enters the Token into their Credit Card Terminal/POS the same way they normally would enter a Card No.
@@ -37,6 +40,7 @@ FIS/Worldpay's systems automatically convert the token back into the original PA
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Merchant New Order Placeholder](Images/tokenized_pan.jpg?raw=true)
 
+---
 #### Merchant Solution 
 
 The Merchant solution consists of three (3) experiences
@@ -63,6 +67,7 @@ The Merchant solution consists of three (3) experiences
 
 > @icon-exclamation-circle Note: The Merchant Application is **NOT in PCI scope**. It DOES NOT have access to clear text PAN, it only has access to Tokenized PAN
 
+---
 #### Cardholder Solution
 
 The Cardholder solution consists of three (3) experiences
@@ -83,7 +88,8 @@ The Cardholder solution consists of three (3) experiences
     + Clicking on the button navigates the customer to the Merchant's website.
 
 ---
-## Solution Architecture
+#### Solution Architecture
+&nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](Images/app_arch.jpg?raw=true)
 
 ![One Bubble Placeholder](Images/one_bubble.jpg?raw=true) &nbsp; **IPhone Smartphone Application**  
 + The IPhone application is written in [Swift](https://www.apple.com/swift/) 
@@ -188,12 +194,10 @@ PAYACHK  DS    0H
 ![Six Bubble Placeholder](Images/six_bubble.jpg?raw=true) &nbsp; **Twilio SMS Service**  
 * Our solution calls the [Twilo](https://www.twilio.com/) REST WebAPI to send SMS messages to customers.
 
-&nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](Images/app_arch.jpg?raw=true)
-
-> @icon-info-circle Special thank you to the DataPower team who helped us setup a non-prod proxy for this project!
-
 ---
-## Innovative Technology
+#### What Makes It Cool?
+
+We used a brand new technology (Blazor WebAssembly) to create the Customer Web SPA application
 
 > #### @icon-info-circle WebAssembly Background 
 > [WebAssembly](https://webassembly.org/) (abbreviated Wasm) is an open standard that defines a portable binary-code format for executable programs.  It became a [World Wide Web Consortium recommendation](https://www.w3.org/TR/wasm-core-1/) on December 5, 2019 and, alongside HTML, CSS, and JavaScript, is the fourth language to run natively in browsers.
@@ -213,12 +217,11 @@ Similar to JavaScript, Blazor WebAssembly apps run securely in the user’s brow
 &nbsp;&nbsp;&nbsp;&nbsp;![App Arch Placeholder](Images/blazor_webassembly.jpg?raw=true)
 
 These apps can be deployed as completely standalone static sites without any .NET server component at all, or they can be paired with ASP.NET Core to enable full stack web development and debugging with .NET using Visual Studio, Visual Studio for Mac, and Visual Studio Code.
-
+###
 > @icon-info-circle In this solution, the cloud-hosted business services and the payment page running the customer's brower share the same assembly that contains definitions of Business Entities and shared logic.
 
 
----
-### Mobile Browser Support for WebAssembly
+#### Mobile Browser Support for WebAssembly
 
 * Data from https://caniuse.com/#search=webassembly
 
@@ -227,7 +230,43 @@ These apps can be deployed as completely standalone static sites without any .NE
 > @icon-exclamation-circle  WebAssembly **is** broadly supported across the Mobile Browsers used on current Smartphones.
 
 ---
-## Team ID8
+#### Wow factor
+
+The potential US market is a portion of the **100M+** KEYED-IN transactions that RAFT processes **each month**
+
+Our solution does not require any new investment by the merchant, it requires minumum training and only a minor change to how they process orders today.
+
+We leverage FIS/Worldpay’s unique ability to build innovative solutions because of where we sit in the Payment Auth Flow for a signif % of US Credit Card transactions 
+ 
+Amazing solutions are possible when you leverage not only the “cool” technologies that you think about:
+i.	Smartphone Native Apps
+ii.	Cloud Hosted WebAPIs
+iii.	SPA Web APPs
+
+but also some of our core assets like
+iv. RAFT Auth Switch/Mainframe  (when is the last time you heard the words MainFrame, Assembler, WebAPI and Hackathon **used together**?)  
+ 
+
+---
+
+#### Source Code
+This source code repository [id8](https://bitbucket.fis.dev/projects/INNO20R/repos/id8/browse) contains:
+<ul>
+<li>Merchant IPhone application.  This is a native IOS application that would be installed on the Merchant's phone.
+</ul>
+
+A companion source code repository [id8-again](https://bitbucket.fis.dev/projects/INNO20R/repos/id8-again/browse) contains:
+<ul>
+<li>Backend Business Services for the PayAway Merchant Smartphone application and Customer Payment Pages.  
+The Business Services are hosted in a Microsoft Azure App Service and are exposed as a set of REST WebAPIs.
+<li>Payment Page (HPP) used by the Customer.  
+The HPP is built using Blazor WebAssembly and runs in a user's browser.
+</ul>
+
+The code for Mainframe RAFT and Raft Gateway is stored in their respective Source Code Repositories.  
+
+---
+#### Team ID8
 Team ID8 is from the Merchant Solutions division of FIS
 
 
