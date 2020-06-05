@@ -12,16 +12,23 @@ The HPP is built using Blazor WebAssembly and runs in a user's browser.
 </ul>
 
 ---
-## PayAway Solution Introduction
+## PayAway
 
-PayAway is ..... Need Marco words here
+#### Business Proposition
+PayAway is a solution that converts remote payment transactions such as over-the-phone into secure online payments. It's value proposition rests on 2 main pillars:
+- To reduce the risk associated with exchanging payment card information openly over the phone - benefits merchants and consumers
+- To support a merchant's digital strategy by converting the payment portion of a phone interaction into a more secure online payment transaction, at the completion of which the consumer can be redirected to the merchants digital properties to continue the brand interaction. This opportunity for organic brand interaction would have been completely lost at the time the consumer hangs up the phone.
+
+ 
+
+The solution can be leveraged by merchants of any size and in virtually any industry or vertical: doctor's offices can use it to accelerate time to revenue; professional services providers such as contractors can leverage it to capture security deposits for an appointment or to bill pre- or post-service; online retailers offering the increasingly popular web chat support services can leverage it to drive conversion prior to terminating contact with the customer; and many other examples. All merchants can tie the solution into their digital strategies and benefit from safer payments and increased brand interaction post-contact, simply by leveraging this innovative implementation of the payment flow.
 
 * replace the need to take Credit Card Numbers over the phone with a very low friction e-Commerce like experience for the customer.
 * remove the PCI compliance challenges merchants face 
 * provide an opportunity to extend the interaction with the customer
 * does not require any specialized equipment, investment or integration changes by the merchant.
 
-#### Summary
+#### Overview
 We provide an ability for the Customer's Payment Card No to be substituted for a Token before it is made available to the Merchant.
 
 The merchant enters the Token into their Credit Card Terminal/POS the same they normally would.
